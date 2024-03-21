@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export const Heading = styled.h1`
-  font-size: 25px;
+  font-size: ${props => props.fontSize};
+  color: ${props => props.color};
+  font-family: ${props => props.fontFamily};
+  font-weight: ${props => props.fw};
 `
 export const Box = styled.div`
   height: ${props => props.height};
@@ -62,4 +65,5 @@ export const Img = styled.img`
   height: ${props => props.height};
   width: ${props => props.width};
   margin-left: ${props => props.mLeft};
+  margin-right: ${props => props.mr};
 `

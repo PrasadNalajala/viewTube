@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 import {
   Heading,
   Box,
@@ -16,6 +17,7 @@ const Login = () => {
   const [showPassword, togglePassword] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const history = useHistory()
   const onChangeShowPassword = () => {
     togglePassword(!showPassword)
   }
@@ -42,6 +44,7 @@ const Login = () => {
     if (response.ok) {
       setUsername('')
       setPassword('')
+      history.push('/')
       // console.log('succesfully logged  in')
     } else {
       setErrorMsg('*Invalid Credentials')
