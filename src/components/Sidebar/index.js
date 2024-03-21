@@ -11,7 +11,9 @@ const Sidebar = () => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {theme} = value
+        const {theme, activeTab, onClickTab} = value
+        const activeTabStyle =
+          theme.background === '#ffffff' ? 'activeTabLight' : 'activeTabDark'
         return (
           <Box
             theme={theme}
@@ -23,25 +25,53 @@ const Sidebar = () => {
             padding="15px"
           >
             <Box>
-              <Box display="flex" alignItems="center" padding="5px">
+              <Box
+                display="flex"
+                alignItems="center"
+                padding="5px"
+                onClick={() => onClickTab('home')}
+                cursor="pointer"
+                className={activeTab === 'home' ? activeTabStyle : ''}
+              >
                 <AiFillHome className="side-bar-icon" />
-                <Heading fontSize="20px" fontFamily="Roboto" fw="400">
+                <Heading fontSize="20px" fontFamily="Roboto">
                   Home
                 </Heading>
               </Box>
-              <Box display="flex" alignItems="center" padding="5px">
+              <Box
+                display="flex"
+                alignItems="center"
+                padding="5px"
+                onClick={() => onClickTab('trending')}
+                cursor="pointer"
+                className={activeTab === 'trending' ? activeTabStyle : ''}
+              >
                 <HiTrendingUp className="side-bar-icon" />
                 <Heading fontSize="20px" fontFamily="Roboto" fw="400">
                   Trending
                 </Heading>
               </Box>
-              <Box display="flex" alignItems="center" padding="5px">
+              <Box
+                display="flex"
+                alignItems="center"
+                padding="5px"
+                cursor="pointer"
+                onClick={() => onClickTab('gaming')}
+                className={activeTab === 'gaming' ? activeTabStyle : ''}
+              >
                 <RiGamepadFill className="side-bar-icon" />
                 <Heading fontSize="20px" fontFamily="Roboto" fw="400">
                   Gaming
                 </Heading>
               </Box>
-              <Box display="flex" alignItems="center" padding="5px">
+              <Box
+                display="flex"
+                alignItems="center"
+                padding="5px"
+                onClick={() => onClickTab('savedVideos')}
+                cursor="pointer"
+                className={activeTab === 'savedVideos' ? activeTabStyle : ''}
+              >
                 <MdPlaylistAdd className="side-bar-icon" />
                 <Heading fontSize="20px" fontFamily="Roboto" fw="400">
                   Saved videos

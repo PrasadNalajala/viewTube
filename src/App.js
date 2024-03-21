@@ -9,17 +9,17 @@ const lightTheme = {
   background: '#ffffff',
   text: '#000000',
   logoUrl:
-    'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png',
+    'https://i.postimg.cc/brFgm1sT/viewtube-high-resolution-logo-transparent.png',
 }
 const darkTheme = {
   background: '#121212',
   text: '#ffffff',
   logoUrl:
-    'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png',
+    'https://i.postimg.cc/fRjhVPGh/viewtube-high-resolution-logo-white-transparent.png',
 }
 
 class App extends Component {
-  state = {theme: darkTheme}
+  state = {theme: darkTheme, activeTab: 'home'}
 
   toggleTheme = () => {
     // console.log('toggledTheme')
@@ -28,10 +28,21 @@ class App extends Component {
     }))
   }
 
+  onClickTab = tab => {
+    this.setState({activeTab: tab})
+  }
+
   render() {
-    const {theme} = this.state
+    const {theme, activeTab} = this.state
     return (
-      <ThemeContext.Provider value={{theme, toggleTheme: this.toggleTheme}}>
+      <ThemeContext.Provider
+        value={{
+          theme,
+          toggleTheme: this.toggleTheme,
+          activeTab,
+          onClickTab: this.onClickTab,
+        }}
+      >
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route path="/" component={Home} />

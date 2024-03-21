@@ -10,6 +10,7 @@ const lightTheme = {
 const Themecontext = React.createContext({
   theme: lightTheme,
   toggleTheme: () => {},
+  activeTab: 'Home',
 })
 
 export default Themecontext

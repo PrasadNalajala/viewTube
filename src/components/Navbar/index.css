@@ -5,7 +5,18 @@
 }
 .side-bar-icon {
   font-size: 20px;
-
+  margin-left: 10px;
   margin-right: 25px;
   cursor: pointer;
+}
+.activeTabDark {
+  color: red;
+  background-color: rgb(92, 92, 97);
+  border-radius: 10px;
+  font-weight: bolder;
+}
+.activeTabLight {
+  color: red;
+  border-radius: 10px;
+  background-color: rgb(222, 253, 219);
 }

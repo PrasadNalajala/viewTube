@@ -17,8 +17,12 @@ export const Box = styled.div`
   width: ${props => props.width};
   box-shadow: ${props => props.shadow};
   padding: ${props => props.padding};
+  outline: none;
+  cursor: ${props => props.cursor};
   padding-top: ${props => props.paddingTop};
   border-radius: ${props => props.br};
+  user-select: none;
+  background-image: url('${props => props.bgImg}');
 `
 export const Logo = styled.img`
   height: 40px;
