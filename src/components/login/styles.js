@@ -22,6 +22,7 @@ export const Box = styled.div`
   padding-top: ${props => props.paddingTop};
   border-radius: ${props => props.br};
   user-select: none;
+  background-size: cover;
   background-image: url('${props => props.bgImg}');
 `
 export const Logo = styled.img`
@@ -57,6 +58,7 @@ export const Button = styled.button`
   margin-left: ${props => props.mLeft};
   margin-bottom: ${props => props.mBottom};
   font-family: ${props => props.fontFamily};
+  font-size:${props => props.fSize}
   outline: none;
   cursor: pointer;
 `

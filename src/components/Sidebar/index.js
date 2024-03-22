@@ -17,7 +17,7 @@ const Sidebar = () => {
         return (
           <Box
             theme={theme}
-            width="270px"
+            width="17%"
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
