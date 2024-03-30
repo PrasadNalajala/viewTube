@@ -28,6 +28,7 @@ specifiers:
   react-player: 2.9.0
   react-router-dom: 5.2.0
   react-scripts: 4.0.3
+  react-spinners: 0.13.8
   reactjs-popup: 2.0.5
   styled-components: 5.3.0
   surge: 0.23.0
@@ -51,6 +52,7 @@ dependencies:
   react-loader-spinner: 4.0.0_react-dom@17.0.1+react@17.0.1
   react-player: 2.9.0_react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
+  react-spinners: 0.13.8_react-dom@17.0.1+react@17.0.1
   reactjs-popup: 2.0.5_react-dom@17.0.1+react@17.0.1
   styled-components: 5.3.0_react-dom@17.0.1+react@17.0.1
   surge: 0.23.0
@@ -12217,6 +12219,16 @@ packages:
       object-assign: 4.1.1
       react: 17.0.1
       react-is: 17.0.2
+    dev: false
+
+  /react-spinners/0.13.8_react-dom@17.0.1+react@17.0.1:
+    resolution: {integrity: sha512-3e+k56lUkPj0vb5NDXPVFAOkPC//XyhKPJjvcGjyMNPWsBKpplfeyialP74G7H7+It7KzhtET+MvGqbKgAqpZA==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
     dev: false
 
   /react-test-renderer/17.0.2_react@17.0.1:

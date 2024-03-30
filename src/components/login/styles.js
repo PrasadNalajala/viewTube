@@ -24,6 +24,14 @@ export const Box = styled.div`
   user-select: none;
   background-size: cover;
   background-image: url('${props => props.bgImg}');
+  margin-top: ${props => props.mTop};
+  margin-left: ${props => props.mLeft};
+  border: ${props => props.border};
+  flex-wrap: ${props => props.wrap};
+  position: ${props => props.position};
+  overflow-y: auto;
+  margin: ${props => props.margin};
+  margin-right: ${props => props.mRight};
 `
 export const Logo = styled.img`
   height: 40px;
@@ -40,6 +48,16 @@ export const Input = styled.input`
   outline: none;
   -webkit-text-security: none; /* For Safari/Chrome */
   text-security: none;
+  background-color: ${props => props.bgColor};
+  color: ${props => props.color};
+  border: ${props => props.border};
+  border-right: ${props => props.bRight};
+  padding: ${props => props.padding};
+  ::placeholder {
+    color: ${props => props.text};
+    font-style: italic;
+    padding: 3px;
+  }
 `
 export const Checkbox = styled.input`
   height: 20px;
@@ -66,10 +84,15 @@ export const Para = styled.p`
   color: ${props => props.color};
   font-family: ${props => props.fontFamily};
   font-size: ${props => props.fontSize};
+  width: ${props => props.width};
+  margin: ${props => props.margin};
+  font-weight: ${props => props.fw};
+  line-clamp: ${props => props.lines};
 `
 export const Img = styled.img`
   height: ${props => props.height};
   width: ${props => props.width};
   margin-left: ${props => props.mLeft};
   margin-right: ${props => props.mr};
+  border-radius: ${props => props.br};
 `

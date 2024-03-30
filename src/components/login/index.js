@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import Cookies from 'js-cookie'
 import {
   Heading,
   Box,
@@ -45,11 +46,12 @@ const Login = () => {
       setUsername('')
       setPassword('')
       history.push('/')
+      Cookies.set('jwtToken', jwtToken.jwt_token)
       // console.log('succesfully logged  in')
     } else {
       setErrorMsg('*Invalid Credentials')
     }
-    console.log(response)
+    // console.log(jwtToken)
   }
 
   const onClickLogin = () => {
