@@ -23,6 +23,7 @@ const Sidebar = () => {
             justifyContent="space-between"
             height="90vh"
             padding="15px"
+            position="fixed"
           >
             <Box>
               <Box

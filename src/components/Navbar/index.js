@@ -17,6 +17,8 @@ const Navbar = () => {
             justifyContent="space-between"
             alignItems="center"
             padding="18px"
+            width="100vw"
+            position="fixed"
           >
             <Img src={theme.logoUrl} height="35px" />
             <Box
