@@ -4,6 +4,7 @@ import {Router, Route, Switch} from 'react-router-dom'
 import Login from './components/login/index'
 import ThemeContext from './context/ThemeContext'
 import Home from './components/Home/index'
+import VideoDetails from './components/VideoDetails'
 
 const lightTheme = {
   background: '#ffffff',
@@ -45,7 +46,8 @@ class App extends Component {
       >
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/videos/:id" component={VideoDetails} />
         </Switch>
       </ThemeContext.Provider>
     )

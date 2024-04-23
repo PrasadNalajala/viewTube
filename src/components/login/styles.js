@@ -32,6 +32,9 @@ export const Box = styled.div`
   overflow-y: auto;
   margin: ${props => props.margin};
   margin-right: ${props => props.mRight};
+  align-self: ${props => props.alignSelf};
+  justify-self: ${props => props.justifySelf};
+  min-height: ${props => props.minHeight};
 `
 export const Logo = styled.img`
   height: 40px;

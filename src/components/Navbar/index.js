@@ -1,11 +1,23 @@
 import {FaMoon} from 'react-icons/fa'
 import {IoSunny} from 'react-icons/io5'
+import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
+import {useState} from 'react'
 import {Box, Para, Heading, Logo, Button, Img} from '../login/styles'
 import ThemeContext from '../../context/ThemeContext'
 import './index.css'
 
 const Navbar = () => {
-  const onclick = () => {}
+  const [redirect, setRedirect] = useState(false)
+  const onClickLogout = () => {
+    Cookies.remove('jwtToken')
+    setRedirect(true)
+  }
+
+  if (redirect) {
+    return <Redirect to="/login" />
+  }
+
   return (
     <ThemeContext.Consumer>
       {value => {
@@ -44,6 +56,7 @@ const Navbar = () => {
                 width="87px"
                 border="2px solid #3b82f6;"
                 mLeft="15px"
+                onClick={onClickLogout}
               >
                 Logout
               </Button>

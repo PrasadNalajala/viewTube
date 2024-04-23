@@ -3,12 +3,13 @@ import {useState, useEffect} from 'react'
 import {FaSearch} from 'react-icons/fa'
 import Cookies from 'js-cookie'
 import {formatDistance} from 'date-fns'
-
+import {Link} from 'react-router-dom'
 import {PulseLoader} from 'react-spinners'
 import {Box, Heading, Para, Img, Logo, Button, Input} from '../login/styles'
 import Navbar from '../Navbar/index'
 import Sidebar from '../Sidebar/index'
 import ThemeContext from '../../context/ThemeContext'
+import '../../App.css'
 
 const Home = () => {
   const [disablePopup, setDisablePopup] = useState(false)
@@ -53,7 +54,7 @@ const Home = () => {
             <Box display="flex" paddingTop="70px">
               <Sidebar />
               {!isLoading ? (
-                <Box width="83%" theme={theme} mLeft="17%">
+                <Box width="83%" theme={theme} mLeft="17%" minHeight="90vh">
                   <Box
                     bgImg="https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png"
                     width="100%"
@@ -116,57 +117,83 @@ const Home = () => {
                     </Box>
                   </Box>
                   <Box display="flex" wrap="wrap">
-                    {videosArray !== undefined ? (
+                    {videosArray.length !== 0 ? (
                       videosArray.map(each => {
                         // console.log(each)
                         let a
                         return (
-                          <Box mTop="15px" mRight="20px">
-                            <Img
-                              src={each.thumbnail_url}
-                              height="230px"
-                              width="396px"
-                              br="10px"
-                            />
-                            <Box
-                              display="flex"
-                              alignItems="flex-start"
-                              mTop="5px"
-                            >
+                          <Link to={`/videos/${each.id}`} className="link">
+                            <Box mTop="15px" mRight="20px">
                               <Img
-                                src={each.channel.profile_image_url}
-                                height="40px"
-                                mr="7px"
+                                src={each.thumbnail_url}
+                                height="230px"
+                                width="396px"
+                                br="10px"
                               />
-                              <Box>
-                                <Para
-                                  width="350px"
-                                  margin="0"
-                                  fw="bold"
-                                  lines="2"
-                                >
-                                  {each.title}
-                                </Para>
-                                <Para margin="2px" color="#808080">
-                                  {each.channel.name}
-                                </Para>
-                                <Para margin="2px" color="#808080">
-                                  {each.view_count} Views ·
-                                  {formatDistance(
-                                    new Date(),
-                                    new Date(each.published_at),
-                                  )}
-                                </Para>
+                              <Box
+                                display="flex"
+                                alignItems="flex-start"
+                                mTop="5px"
+                              >
+                                <Img
+                                  src={each.channel.profile_image_url}
+                                  height="40px"
+                                  mr="7px"
+                                />
+                                <Box>
+                                  <Para
+                                    width="350px"
+                                    margin="0"
+                                    fw="bold"
+                                    lines="2"
+                                    color={theme.text}
+                                  >
+                                    {each.title}
+                                  </Para>
+                                  <Para margin="2px" color="#808080">
+                                    {each.channel.name}
+                                  </Para>
+                                  <Para margin="2px" color="#808080">
+                                    {each.view_count} Views ·
+                                    {formatDistance(
+                                      new Date(),
+                                      new Date(each.published_at),
+                                    )}
+                                  </Para>
+                                </Box>
                               </Box>
                             </Box>
-                          </Box>
+                          </Link>
                         )
                       })
                     ) : (
-                      <Img
-                        height="300px"
-                        src="https://app.lottiefiles.com/share/6c695947-20fa-4d89-bf5a-9301fa1e1aac"
-                      />
+                      <Box
+                        theme={theme}
+                        mLeft="30%"
+                        mTop="50px"
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        flexDirection="column"
+                        height="500px"
+                      >
+                        <Img
+                          height="300px"
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+                        />
+                        <Heading>No Results Found</Heading>
+                        <Para mTop="5px">Try using different keywords</Para>
+                        <Button
+                          bgColor="#289119"
+                          color="#ffffff"
+                          height="35px"
+                          width="100px"
+                          border="none"
+                          br="5px"
+                        >
+                          Retry
+                        </Button>
+                      </Box>
                     )}
                   </Box>
                 </Box>
@@ -174,6 +201,7 @@ const Home = () => {
                 <Box
                   mLeft="17%"
                   display="flex"
+                  theme={theme}
                   alignItems="center"
                   height="90vh"
                   width="100%"
